@@ -1,14 +1,12 @@
 <template>
   <q-item
     clickable
-    tag="a"
-    target="_blank"
-    :href="link"
+    @click="
+      console.log(route);
+      router.push(route);
+    "
   >
-    <q-item-section
-      v-if="icon"
-      avatar
-    >
+    <q-item-section v-if="icon" avatar>
       <q-icon :name="icon" />
     </q-item-section>
 
@@ -20,20 +18,24 @@
 </template>
 
 <script setup lang="ts">
+import { useRouter } from 'vue-router';
+
+const router = useRouter();
+
 defineOptions({
-  name: 'EssentialLink'
+  name: 'DrawerItem',
 });
 
-export interface EssentialLinkProps {
+export interface DrawerItemProps {
   title: string;
   caption?: string;
-  link?: string;
+  route?: string;
   icon?: string;
-};
+}
 
-withDefaults(defineProps<EssentialLinkProps>(), {
+withDefaults(defineProps<DrawerItemProps>(), {
   caption: '',
-  link: '#',
+  route: '#',
   icon: '',
 });
 </script>
