@@ -1,3 +1,8 @@
+# custom
+# firebase keys etc
+/src/firebase/index.ts
+
+# preconfigured
 .DS_Store
 .thumbs.db
 node_modules
