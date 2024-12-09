@@ -45,10 +45,28 @@ defineOptions({
 
 const linksList: DrawerItemProps[] = [
   {
-    title: 'Docs',
+    title: 'Home',
     caption: 'quasar.dev',
-    icon: 'school',
-    route: '/login',
+    icon: 'home',
+    route: '',
+  },
+  {
+    title: 'Mitglieder',
+    caption: 'quasar.dev',
+    icon: 'person',
+    route: 'mitglieder',
+  },
+  {
+    title: 'Trainingspläne',
+    caption: 'quasar.dev',
+    icon: 'list_alt',
+    route: 'mitglieder',
+  },
+  {
+    title: 'Trainingsfortschritt',
+    caption: 'quasar.dev',
+    icon: 'monitoring',
+    route: 'mitglieder',
   },
 ];
 

@@ -35,6 +35,7 @@ export default route(function (/* { store, ssrContext } */) {
   });
 
   Router.beforeEach((to, from, next) => {
+    console.log('from ', from);
     if (to.meta.auth && !LocalStorage.has('user')) {
       return next('/login');
     }

@@ -17,8 +17,17 @@ const routes: RouteRecordRaw[] = [
   {
     path: '/app',
     component: () => import('layouts/MainLayout.vue'),
-    children: [{ path: '', component: () => import('pages/IndexPage.vue') }],
     meta: { auth: true },
+    children: [
+      {
+        path: '',
+        component: () => import('pages/IndexPage.vue'),
+      },
+      {
+        path: 'mitglieder',
+        component: () => import('pages/MemberPage.vue'),
+      },
+    ],
   },
   {
     path: '/:catchAll(.*)*',
