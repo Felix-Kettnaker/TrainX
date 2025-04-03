@@ -11,7 +11,7 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Todo, Meta } from 'components/models';
+import { Todo, Meta } from 'src/models/models';
 import ExampleComponent from 'components/ExampleComponent.vue';
 import { LocalStorage } from 'quasar';
 import { User } from 'src/firebase/user';
