@@ -1,4 +1,8 @@
 export default {
   failed: 'Aktion fehlgeschlagen',
-  success: 'Aktion erfolgreich'
+  success: 'Aktion erfolgreich',
+
+  validation: {
+    necessary: 'Pflichtfeld',
+  },
 };

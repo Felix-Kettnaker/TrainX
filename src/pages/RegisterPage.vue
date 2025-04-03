@@ -52,18 +52,26 @@
                   v-model="user.first_name"
                   label="First Name"
                   name="First Name"
+                  :rules="[val => !!val || $t('validation.necessary')]"
                 />
                 <q-input
                   v-model="user.last_name"
                   label="Last Name"
                   name="Last Name"
+                  :rules="[val => !!val || $t('validation.necessary')]"
                 />
-                <q-input v-model="user.email" label="Email" name="Email" />
+                <q-input
+                  v-model="user.email"
+                  label="Email"
+                  name="Email"
+                  :rules="[val => !!val || $t('validation.necessary')]"
+                />
                 <q-input
                   v-model="user.password"
                   label="Password"
                   name="password"
                   type="password"
+                  :rules="[val => !!val || $t('validation.necessary')]"
                 />
 
                 <div>

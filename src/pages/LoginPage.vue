@@ -48,13 +48,19 @@
               </div>
 
               <q-form ref="form" class="q-gutter-md" @submit="submit">
-                <q-input v-model="user.email" label="Email" name="Email" />
+                <q-input
+                  v-model="user.email"
+                  label="Email"
+                  name="Email"
+                  :rules="[val => !!val || $t('validation.necessary')]"
+                />
 
                 <q-input
                   v-model="user.password"
                   label="Password"
                   name="password"
                   type="password"
+                  :rules="[val => !!val || $t('validation.necessary')]"
                 />
 
                 <div>
@@ -101,7 +107,7 @@ const form = ref(null);
 const submit = async () => {
   if (form.value.validate()) {
     try {
-      await login(user);
+      await login(user.email, user.password);
       router.push('/app');
     } catch (err) {}
   }
