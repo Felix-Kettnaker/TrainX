@@ -15,6 +15,7 @@ import { Todo, Meta } from 'src/models/models';
 import ExampleComponent from 'components/ExampleComponent.vue';
 import { LocalStorage } from 'quasar';
 import { User } from 'src/firebase/user';
+
 console.log('user: ', LocalStorage.getItem('user'));
 
 defineOptions({
