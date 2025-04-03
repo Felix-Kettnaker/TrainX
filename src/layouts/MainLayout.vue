@@ -60,13 +60,19 @@ const linksList: DrawerItemProps[] = [
     title: 'Trainingspläne',
     caption: 'quasar.dev',
     icon: 'list_alt',
-    route: 'mitglieder',
+    route: 'trainingsplaene',
   },
   {
     title: 'Trainingsfortschritt',
     caption: 'quasar.dev',
-    icon: 'monitoring',
-    route: 'mitglieder',
+    icon: 'monitor',
+    route: 'trainingsfortschritt',
+  },
+  {
+    title: 'Auftritte',
+    caption: 'quasar.dev',
+    icon: 'monitor',
+    route: 'auftritte',
   },
 ];
 

@@ -25,7 +25,19 @@ const routes: RouteRecordRaw[] = [
       },
       {
         path: 'mitglieder',
-        component: () => import('pages/MemberPage.vue'),
+        component: () => import('pages/MembersPage.vue'),
+      },
+      {
+        path: 'trainingsplaene',
+        component: () => import('pages/TrainingPlansPage.vue'),
+      },
+      {
+        path: 'trainingsfortschritt',
+        component: () => import('pages/TrainingProgressPage.vue'),
+      },
+      {
+        path: 'auftritte',
+        component: () => import('pages/ShowActsPage.vue'),
       },
     ],
   },
