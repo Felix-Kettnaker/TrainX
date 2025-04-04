@@ -33,15 +33,16 @@
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import DrawerItem, { DrawerItemProps } from 'components/DrawerItem.vue';
-import signout from 'src/firebase/firebase-signout';
 import { useRouter } from 'vue-router';
-import { useUserStore } from 'src/stores/user-store';
 import { LocalStorage } from 'quasar';
-import { User } from 'src/firebase/user';
 import { doc, getDoc } from 'firebase/firestore';
-import { db } from 'src/firebase';
+import { User } from 'firebase/auth';
+
 import { UserProfile } from 'src/models/user';
+import { db } from 'src/firebase';
+import signout from 'src/firebase/firebase-signout';
+import { useUserStore } from 'src/stores/user-store';
+import DrawerItem, { DrawerItemProps } from 'components/DrawerItem.vue';
 
 const router = useRouter();
 const userStore = useUserStore()

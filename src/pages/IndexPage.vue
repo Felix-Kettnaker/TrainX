@@ -11,10 +11,11 @@
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import { Todo, Meta } from 'src/models/models';
-import ExampleComponent from 'components/ExampleComponent.vue';
 import { LocalStorage } from 'quasar';
-import { User } from 'src/firebase/user';
+import { User } from 'firebase/auth';
+
+import { Meta, Todo } from 'src/models/models';
+import ExampleComponent from 'components/ExampleComponent.vue';
 
 console.log('user: ', LocalStorage.getItem('user'));
 
