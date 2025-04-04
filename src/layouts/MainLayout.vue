@@ -32,12 +32,19 @@
 </template>
 
 <script setup lang="ts">
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import DrawerItem, { DrawerItemProps } from 'components/DrawerItem.vue';
 import signout from 'src/firebase/firebase-signout';
 import { useRouter } from 'vue-router';
+import { useUserStore } from 'src/stores/user-store';
+import { LocalStorage } from 'quasar';
+import { User } from 'src/firebase/user';
+import { doc, getDoc } from 'firebase/firestore';
+import { db } from 'src/firebase';
+import { UserProfile } from 'src/models/user';
 
 const router = useRouter();
+const userStore = useUserStore()
 
 defineOptions({
   name: 'MainLayout',
@@ -87,4 +94,17 @@ const logout = () => {
 function toggleLeftDrawer() {
   leftDrawerOpen.value = !leftDrawerOpen.value;
 }
+
+onMounted(async () => {
+  // war noch eingeloggt -> müssen hier userProfile laden
+  if (!userStore.isUserProfileLoaded) {
+    const user = LocalStorage.getItem('user') as User
+    const userDocRef = doc(db, 'users', user.uid)
+    const userProfileDocSnap = await getDoc(userDocRef)
+    // INFO: Ort 3/4 wo userProfile im Store gesetzt wird
+    userStore.userProfile = userProfileDocSnap.data() as UserProfile
+    userStore
+  }
+})
+
 </script>

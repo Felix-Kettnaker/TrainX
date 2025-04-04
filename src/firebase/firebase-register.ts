@@ -1,10 +1,11 @@
 import { auth, db } from './index.ts';
 import { createUserWithEmailAndPassword, updateProfile } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, getDoc, setDoc } from 'firebase/firestore';
 
 import { Loading, Notify } from 'quasar';
 
 import { UserProfile } from 'src/models/user.ts';
+import { useUserStore } from 'src/stores/user-store.ts';
 
 
 async function register(data: {
@@ -37,6 +38,12 @@ async function register(data: {
         role: 'athlete',
       }
       await setDoc(userDocRef, userProfileData);
+
+      // Benutzerdaten aktualisieren und im store speichern
+      const userProfileDocSnap = await getDoc(userDocRef)
+      // if (userProfileDocSnap.exists()){
+      // INFO: Ort 1/4 wo userProfile im Store gesetzt wird
+      useUserStore().userProfile = userProfileDocSnap.data() as UserProfile
       console.log('Benutzerprofil in DB angelegt: ', userProfileData);
       return user;
     }
